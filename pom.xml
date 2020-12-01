@@ -3,6 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>cn.lexio</groupId>
     <artifactId>netcat</artifactId>
+    <name>nc</name>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
     <description>A mimic of GNU nc shell utility</description>
@@ -34,6 +35,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
+                <version>3.2.0</version>
                 <configuration>
                     <archive>
                         <manifest>
@@ -44,14 +46,6 @@
                             <Built-By>Sokrato</Built-By>
                         </manifestEntries>
                     </archive>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>8</source>
-                    <target>8</target>
                 </configuration>
             </plugin>
         </plugins>
