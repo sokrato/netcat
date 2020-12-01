@@ -83,7 +83,7 @@ public class Netcat {
             return;
         }
 
-        Netcat app = new Netcat(1024);
+        Netcat app = new Netcat(4096);
         try {
             if ("-l".equals(args[0])) {
                 app.asServer(port);
