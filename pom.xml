@@ -4,7 +4,7 @@
     <groupId>cn.lexio</groupId>
     <artifactId>netcat</artifactId>
     <name>nc</name>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <packaging>jar</packaging>
     <description>A mimic of GNU nc shell utility</description>
 
@@ -27,6 +27,10 @@
         <repository>
             <id>clojars</id>
             <url>http://clojars.org/repo/</url>
+        </repository>
+        <repository>
+            <id>central</id>
+            <url>https://repo1.maven.org/maven2</url>
         </repository>
     </repositories>
 
