@@ -85,24 +85,28 @@ public class SQLShell {
     }
 
     void query(Connection conn, String line) throws SQLException {
-        ResultSet resultSet = conn.prepareStatement(line).executeQuery();
-        int cnt = printResult(resultSet);
-        resultSet.close();
-        System.out.println(cnt + " rows selected.");
+        try (ResultSet resultSet = conn.prepareStatement(line).executeQuery()) {
+            printResult(resultSet);
+        }
     }
 
-    int printResult(ResultSet resultSet) throws SQLException {
+    void printResult(ResultSet resultSet) throws SQLException {
         int cnt = 0;
         ResultSetMetaData meta = resultSet.getMetaData();
         while (resultSet.next()) {
+            System.out.println("-----");
             for (int i = 1; i <= meta.getColumnCount(); ++i) {
                 String col = meta.getColumnName(i);
                 Object val = resultSet.getObject(i);
                 System.out.printf("%s: %s\n", col, val);
             }
-            System.out.println("-----");
             ++cnt;
         }
-        return cnt;
+        if (cnt > 0) {
+            System.out.println("-----");
+            System.out.println("rows count: " + cnt);
+        } else {
+            System.out.println("no matching rows");
+        }
     }
 }
